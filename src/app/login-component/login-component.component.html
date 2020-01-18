@@ -1,0 +1,17 @@
+<form [formGroup]="firstForm">
+    <div class="form-group">
+      <label for="exampleInputEmail1">Email address</label>
+      <input type="email" class="form-control" formControlName="firstCtrl"
+      [ngClass]="{'form-control-danger': firstForm.invalid && (firstForm.dirty || firstForm.touched)}" aria-describedby="emailHelp" placeholder="Enter email">
+      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+      <input formControlName="scndCtrl" type="password"
+      [ngClass]="{'form-control-danger': firstForm.invalid && (firstForm.dirty || firstForm.touched)}"
+       class="form-control"  placeholder="Password">
+    </div>
+    <p *ngIf="errormessage" style="color: red;"> {{errormessage}} </p>
+   
+    <button class="btn btn-primary" [disabled]="firstForm.invalid" (click)="onFirstSubmit()">Submit</button>
+  </form>
